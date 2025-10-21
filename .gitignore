@@ -1,2 +1,21 @@
-node_modules/
-dist/
+
+# 全部無視
+/*
+
+# このファイルとREADMEは追跡
+!.gitignore
+!README.md
+
+# src/puzzle を許可
+!src/
+!src/puzzle/
+!src/puzzle/**
+
+# dist/src/puzzle を許可
+!dist/
+!dist/src/
+!dist/src/puzzle/
+!dist/src/puzzle/**
+
+# Mac固有ファイル
+.DS_Store
