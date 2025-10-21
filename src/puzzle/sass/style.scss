@@ -16,10 +16,29 @@
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
-.header  { grid-area: header;  background: variable.$navy;  height: 100px; }
-.sidebar { grid-area: sidebar; background: variable.$green; height: 250px; }
-.main    { grid-area: main;    background: variable.$red;   height: 250px; }
-.footer  { grid-area: footer;  background: variable.$brown; height: 100px; }
+.header {
+  grid-area: header;
+  background: variables.$navy;
+  height: 100px;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background: variables.$green;
+  height: 250px;
+}
+
+.main {
+  grid-area: main;
+  background: variables.$red;
+  height: 250px;
+}
+
+.footer {
+  grid-area: footer;
+  background: variables.$brown;
+  height: 100px;
+}
 
 .header {
   position: relative;
