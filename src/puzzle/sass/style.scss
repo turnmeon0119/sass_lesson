@@ -25,11 +25,11 @@
   position: relative;
 
   .header-tools {
-    @include m.abs-tr(20px, 20px);
+    @include m.abs-tr(10px, 20px);
     @include m.card(10px, v.$white);
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
   }
 
   .square {
@@ -42,7 +42,7 @@
     margin-top: 40px;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 10px;
     align-items: flex-start;
   }
 
@@ -58,8 +58,8 @@
 
 $bar-widths: (
   'purple': 140px,
-  'orange': 150px,
-  'blue':   150px
+  'orange': 140px,
+  'blue':   140px
 );
 
 @each $name, $w in $bar-widths {
