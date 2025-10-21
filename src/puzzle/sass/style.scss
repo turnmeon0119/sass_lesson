@@ -18,25 +18,25 @@
 
 .header {
   grid-area: header;
-  background: variables.$navy;
+  background: variable.$navy;
   height: 100px;
 }
 
 .sidebar {
   grid-area: sidebar;
-  background: variables.$green;
+  background: variable.$green;
   height: 250px;
 }
 
 .main {
   grid-area: main;
-  background: variables.$red;
+  background: variable.$red;
   height: 250px;
 }
 
 .footer {
   grid-area: footer;
-  background: variables.$brown;
+  background: variable.$brown;
   height: 100px;
 }
 
