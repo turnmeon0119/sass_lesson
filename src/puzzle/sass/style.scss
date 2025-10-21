@@ -1,0 +1,73 @@
+@use './reset';
+@use './app';
+@use './variable' as v;
+@use './mixin' as m;
+
+.container {
+  width: 400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 150px 250px;
+  grid-template-rows: 100px 250px 100px;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.header  { grid-area: header;  background: v.$navy;  height: 100px; }
+.sidebar { grid-area: sidebar; background: v.$green; height: 250px; }
+.main    { grid-area: main;    background: v.$red;   height: 250px; }
+.footer  { grid-area: footer;  background: v.$brown; height: 100px; }
+
+.header {
+  position: relative;
+
+  .header-tools {
+    @include m.abs-tr(20px, 20px);
+    @include m.card(10px, v.$white);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .square {
+    @include m.size(40px, 40px);
+  }
+}
+
+.main {
+  .stack {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: flex-start;
+  }
+
+  .card {
+    background: v.$white;
+    padding: 5px;
+    margin-left: 35px;
+    box-sizing: border-box;
+  }
+
+  .bar { height: 40px; }
+}
+
+$bar-widths: (
+  'purple': 140px,
+  'orange': 150px,
+  'blue':   150px
+);
+
+@each $name, $w in $bar-widths {
+  .bar.#{$name}     { width: $w; }
+  .card.is-#{$name} { width: $w + 10px; }
+}
+
+@each $name, $color in zip(v.$classNames, v.$buttonColor) {
+  .square.#{$name},
+  .bar.#{$name} { background: $color; }
+}

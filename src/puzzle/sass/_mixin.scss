@@ -1,0 +1,4 @@
+@mixin size($w, $h) { width: $w; height: $h; }
+@mixin center { display: grid; place-items: center; }
+@mixin abs-tr($top, $right) { position: absolute; top: $top; right: $right; }
+@mixin card($pad: 10px, $bg: $white) { background: $bg; padding: $pad; box-sizing: border-box; }
