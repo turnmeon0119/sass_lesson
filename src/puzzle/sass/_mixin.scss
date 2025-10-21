@@ -1,4 +1,23 @@
-@mixin size($w, $h) { width: $w; height: $h; }
-@mixin center { display: grid; place-items: center; }
-@mixin abs-tr($top, $right) { position: absolute; top: $top; right: $right; }
-@mixin card($pad: 10px, $bg: $white) { background: $bg; padding: $pad; box-sizing: border-box; }
+@use './variable';
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin center {
+  display: grid;
+  place-items: center;
+}
+
+@mixin abs-tr($top-offset, $right-offset) {
+  position: absolute;
+  top: $top-offset;
+  right: $right-offset;
+}
+
+@mixin card($padding: 10px, $background: variable.$white) {
+  background: $background;
+  padding: $padding;
+  box-sizing: border-box;
+}

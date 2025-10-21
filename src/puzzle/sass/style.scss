@@ -1,7 +1,7 @@
 @use './reset';
+@use './variable';
+@use './mixin';
 @use './app';
-@use './variable' as v;
-@use './mixin' as m;
 
 .container {
   width: 400px;
@@ -16,24 +16,24 @@
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
-.header  { grid-area: header;  background: v.$navy;  height: 100px; }
-.sidebar { grid-area: sidebar; background: v.$green; height: 250px; }
-.main    { grid-area: main;    background: v.$red;   height: 250px; }
-.footer  { grid-area: footer;  background: v.$brown; height: 100px; }
+.header  { grid-area: header;  background: variable.$navy;  height: 100px; }
+.sidebar { grid-area: sidebar; background: variable.$green; height: 250px; }
+.main    { grid-area: main;    background: variable.$red;   height: 250px; }
+.footer  { grid-area: footer;  background: variable.$brown; height: 100px; }
 
 .header {
   position: relative;
 
   .header-tools {
-    @include m.abs-tr(10px, 20px);
-    @include m.card(10px, v.$white);
+    @include mixin.abs-tr(10px, 20px);
+    @include mixin.card(10px, variable.$white);
     display: flex;
     align-items: center;
     gap: 10px;
   }
 
   .square {
-    @include m.size(40px, 40px);
+    @include mixin.size(40px, 40px);
   }
 }
 
@@ -47,7 +47,7 @@
   }
 
   .card {
-    background: v.$white;
+    background: variable.$white;
     padding: 5px;
     margin-left: 35px;
     box-sizing: border-box;
@@ -56,18 +56,17 @@
   .bar { height: 40px; }
 }
 
-$bar-widths: (
-  'purple': 140px,
-  'orange': 140px,
-  'blue':   140px
-);
+$bar-width: 140px;
 
-@each $name, $w in $bar-widths {
-  .bar.#{$name}     { width: $w; }
-  .card.is-#{$name} { width: $w + 10px; }
+.bar { width: $bar-width; }
+
+.card.is-purple,
+.card.is-orange,
+.card.is-blue {
+  width: $bar-width + 10px;
 }
 
-@each $name, $color in zip(v.$classNames, v.$buttonColor) {
+@each $name, $color in zip(variable.$classNames, variable.$buttonColor) {
   .square.#{$name},
   .bar.#{$name} { background: $color; }
 }
